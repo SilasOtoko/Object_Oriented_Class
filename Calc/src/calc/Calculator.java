@@ -141,6 +141,14 @@ public class Calculator {
 			catch(Exception ex){
 				registerA = 0;
 			}
+			temp = lcd3.getText();
+			double registerB;
+			try{
+				registerB = Double.parseDouble(temp);
+			}
+			catch(Exception ex){
+				registerB = 0;
+			}
 			
 		}
 	}
