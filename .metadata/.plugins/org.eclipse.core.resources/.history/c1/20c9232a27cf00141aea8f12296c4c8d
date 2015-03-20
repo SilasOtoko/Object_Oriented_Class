@@ -1,0 +1,24 @@
+package calc;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Calculator {
+	JFrame calc = new JFrame("My Awesome Calculator");
+	
+	//create some panels
+	JPanel topPanel;
+		JTextField lcd, lcd2, lcd3;
+	
+	//constructor
+	public Calculator(){
+		//set up the top panel
+		topPanel = new JPanel();
+		
+		
+		calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		calc.setSize(600, 400);
+		calc.setVisible(true);
+	}
+}

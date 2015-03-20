@@ -1,0 +1,26 @@
+package warpCore;
+
+import java.util.Scanner;
+
+public class Input {
+	private Scanner scan;
+	
+	//constructor
+	public Input()
+	{
+		scan = new Scanner(System.in);
+	}
+	
+	//public int getInt - gets an Integer
+	public int getInt(String prompt)
+	{
+		System.out.println(prompt);
+		while(!scan.hasNextInt())
+		{
+			String garbage = scan.nextLine();
+			System.err.println("Not an integer");
+			System.err.print(prompt);
+		}
+		
+	}
+}

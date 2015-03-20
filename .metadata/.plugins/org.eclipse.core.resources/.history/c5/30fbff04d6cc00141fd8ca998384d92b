@@ -1,0 +1,32 @@
+package warpCore;
+
+public class WarpCore {
+
+	public static void main(String[] args) {
+		Input input = new Input();
+		Dice dice = new Dice();
+		int turns = 0;
+		int d1, d2, d3;
+		d1 = d2 = d3 = 0;
+		boolean r1, r2, r3;
+		r1 = r2 = r3 = true;
+		
+		while(turns < 3){
+			//roll the three dice
+			if(r1 == true)
+			{
+				d1 = dice.roll();
+			}
+			if(r2 == true)
+			{
+				d2 = dice.roll();
+			}
+			if(r3 == true)
+			{
+				d3 = dice.roll();
+			}
+			System.out.println(d1 + " " + d2 + " " + d3);
+			turns++;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+package warpCore;
+
+public class WarpCore {
+
+	public static void main(String[] args) {
+		Input input = new Input();
+		Dice dice = new Dice();
+		int turns = 0;
+		int d1, d2, d3;
+		d1 = d2 = d3 = 0;
+		boolean r1, r2, r3;
+		r1 = r2 = r3 = true;
+		String choice;
+		
+		while(turns < 3){
+			//roll the three dice
+			if(r1)
+			{
+				d1 = dice.roll();
+			}
+			if(r2)
+			{
+				d2 = dice.roll();
+			}
+			if(r3)
+			{
+				d3 = dice.roll();
+			}
+			System.out.println("A B C");
+			System.out.println(d1 + " " + d2 + " " + d3);
+			turns++;
+			
+			//decide what to keep
+			choice = input.getString("Enter letters to keep ");
+		}
+	}
+}

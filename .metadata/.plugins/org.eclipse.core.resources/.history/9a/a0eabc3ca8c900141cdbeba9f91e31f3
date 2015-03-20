@@ -1,0 +1,8 @@
+package ch7;
+
+public class Car {
+	//class variables
+	String model;
+	int miles;
+	double gallons;
+}

@@ -1,0 +1,19 @@
+package ch7;
+
+public class Car {
+	//class variables
+	private String model;
+		public String getModel(){return model;}
+		public void setModel(String v){model = v;}
+	private int miles;
+		public int getMiles(){return miles;}
+		public void setMiles(int v){
+			if(v >= 0){
+				miles = v;
+			}else{
+				System.err.println("invalid miles");
+				System.err.println("miles set to 0");
+			}
+		}
+	private double gallons;
+}

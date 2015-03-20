@@ -1,0 +1,12 @@
+package warpCore;
+
+public class WarpCore {
+
+	public static void main(String[] args) {
+		Input input = new Input();
+		Dice d1 = new Dice();
+		Dice d2 = new Dice();
+		Dice d3 = new Dice();
+		int turns = 0;
+	}
+}

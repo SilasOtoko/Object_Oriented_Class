@@ -1,0 +1,19 @@
+package warpCore;
+
+public class WarpCore {
+
+	public static void main(String[] args) {
+		Input input = new Input();
+		Dice dice = new Dice();
+		int turns = 0;
+		int d1, d2, d3;
+		
+		while(turns < 3){
+			//roll the three dice
+			d1 = dice.roll();
+			d2 = dice.roll();
+			d3 = dice.roll();
+			System.out.println(d1 + " " + d2 + " " + d3);
+		}
+	}
+}

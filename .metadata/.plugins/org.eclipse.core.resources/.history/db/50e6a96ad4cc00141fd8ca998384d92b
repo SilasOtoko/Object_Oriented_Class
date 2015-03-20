@@ -1,0 +1,11 @@
+package warpCore;
+
+public class WarpCore {
+
+	public static void main(String[] args) {
+		Input input = new Input();
+		Dice dice = new Dice();
+		int turns = 0;
+		int dice = dice.roll();
+	}
+}

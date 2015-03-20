@@ -1,0 +1,32 @@
+package shipHull;
+
+public class SailBoat {
+	private String boatName;
+		public String getBoatName(){return boatName;}
+		public void setBoatName(String value){boatName = value;}
+	private int length;
+		public int getLength(){return length;}
+		public void setLength(int value)
+		{
+			if(value >= 0)
+			{
+				length = value;
+			}
+			else
+			{
+				System.err.println("invalid length");
+				System.err.println("length set to 0");
+				length = 0;
+			}
+		}
+		
+		public SailBoat(String name, int feet)
+		{
+			
+		}
+		
+		public calculateHullSpeed()
+		{
+			double hullSpeed = 1.34 * (Math.sqrt(length));
+		}
+}

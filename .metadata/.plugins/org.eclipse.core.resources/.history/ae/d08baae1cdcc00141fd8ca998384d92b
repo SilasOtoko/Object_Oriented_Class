@@ -1,0 +1,19 @@
+package warpCore;
+
+import java.util.Scanner;
+
+public class Input {
+	private Scanner scan;
+	
+	//constructor
+	public Input()
+	{
+		scan = new Scanner(System.in);
+	}
+	
+	//public int getInt - gets an Integer
+	public int getInt(String prompt)
+	{
+		
+	}
+}

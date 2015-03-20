@@ -1,0 +1,10 @@
+package ch7;
+
+public class Car {
+	//class variables
+	private String model;
+		public String getModel(){return model;}
+		public void setModel(String v){model = v;}
+	private int miles;
+	private double gallons;
+}

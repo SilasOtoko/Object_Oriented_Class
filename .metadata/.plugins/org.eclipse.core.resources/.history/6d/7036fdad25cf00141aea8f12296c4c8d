@@ -1,0 +1,7 @@
+package calc;
+
+import javax.swing.JFrame;
+
+public class Calculator {
+	JFrame calc = new JFrame("My Awesome Calculator");	
+}
