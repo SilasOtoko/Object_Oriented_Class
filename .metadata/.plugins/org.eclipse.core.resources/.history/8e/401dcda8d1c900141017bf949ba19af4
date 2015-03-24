@@ -1,6 +1,0 @@
-package shipHull;
-
-public class SailBoat {
-	private String boatName;
-	private int length;
-}

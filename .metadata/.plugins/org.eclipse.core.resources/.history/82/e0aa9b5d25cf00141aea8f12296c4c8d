@@ -1,5 +1,0 @@
-package calc;
-
-public class Calculator {
-	JFrame calc = new JFrame("My Awesome Calculator");
-}
