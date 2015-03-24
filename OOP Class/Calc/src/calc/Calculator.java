@@ -55,8 +55,8 @@ public class Calculator {
 		//make the buttons
 		for(int k=0; k<10; k++)
 			btn[k] = new JButton("" + k);
-		btn[10] = new JButton(".");
-		btn[11] = new JButton("00");
+			btn[10] = new JButton(".");
+			btn[11] = new JButton("00");
 		
 		//attach listener to the buttons
 		for(int k = 0; k < 12; k++)
@@ -92,14 +92,13 @@ public class Calculator {
 			blt[3] = new JButton("/");
 			blt[4] = new JButton("CA");
 			blt[5] = new JButton("CE");
-			blt[6] = new JButton("BS");
+			blt[6] = new JButton("SQR");
 			blt[7] = new JButton("=");
 			
 		
 			for(int k = 0; k < 8; k++){
-				opPanel.add(blt[0]);
 				//attach action listener
-				//blt[k].addActionListener(opPressed);
+				blt[k].addActionListener(opPressed);
 				//place buttons on the opPanel
 				opPanel.add(blt[k]);
 			}
@@ -124,7 +123,7 @@ public class Calculator {
 			}
 			else
 				temp = temp + key;
-			lcd.setText(temp);
+				lcd.setText(temp);
 		}
 	}
 	
@@ -150,7 +149,29 @@ public class Calculator {
 				registerB = 0;
 			}
 			String registerOP;
+			registerOP = lcd2.getText();
 			
+			if(registerB == 0){
+				registerB = registerA;
+				registerOP = action;
+				registerA = 0;
+			}
+			else{
+				if(registerOP.equals("+")){
+					registerB = registerB + registerA;
+				}
+				else if(registerOP.equalsIgnoreCase(".")){
+					registerB = registerB - registerA;
+				}
+				
+				registerA = 0;
+				registerOP = action;
+				
+			}
+			
+			lcd.setText("");
+			lcd2.setText(registerOP);
+			lcd3.setText(""+registerB);
 		}
 	}
 }
