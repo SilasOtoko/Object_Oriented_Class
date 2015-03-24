@@ -1,5 +1,0 @@
-package warpCore;
-
-public class Input {
-	private Scanner scan;
-}
