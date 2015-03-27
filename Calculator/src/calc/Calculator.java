@@ -21,7 +21,7 @@ public class Calculator {
 		JButton[]btn = new JButton[12];
 		Kpress keyPressed = new Kpress();
 	JPanel opPanel;
-		JButton[]blt = new JButton[8];
+		JButton[]blt = new JButton[10];
 		Opress opPressed = new Opress();
 			
 	
@@ -83,7 +83,7 @@ public class Calculator {
 		calc.add(keyPanel, BorderLayout.CENTER);
 		
 		//create the opPanel
-		opPanel = new JPanel(new GridLayout(4, 2, 5, 5));
+		opPanel = new JPanel(new GridLayout(5, 2, 5, 5));
 		
 		//create the buttons
 			blt[0] = new JButton("+");
@@ -94,9 +94,11 @@ public class Calculator {
 			blt[5] = new JButton("CE");
 			blt[6] = new JButton("SQR");
 			blt[7] = new JButton("=");
+			blt[8] = new JButton("BS");
+			blt[9] = new JButton("BIN");
 			
 		
-			for(int k = 0; k < 8; k++){
+			for(int k = 0; k < 10; k++){
 				//attach action listener
 				blt[k].addActionListener(opPressed);
 				//place buttons on the opPanel
@@ -151,14 +153,98 @@ public class Calculator {
 			catch(Exception ex){
 				registerB = 0;
 			}
+			
+			
 			String registerOP;
 			registerOP = lcd2.getText();
 			
-			if(registerB == 0){
-				registerB = registerA;
-				registerOP = action;
-				registerA = 0;
+			if(action.equals("CA"))
+			{
+				 lcd.setText("");
+	             lcd2.setText("");
+	             lcd3.setText("");
 			}
+			else if(action.equals("BS"))
+			{
+				String t = lcd.getText();
+				int length = t.length();
+				if(length > 0)
+				{
+					t = t.substring(0, (length-1));
+					lcd.setText(t);
+				}
+			}
+			else if(action.equals("CE"))
+			{
+				lcd.setText("");
+			}
+			else if(registerOP.equalsIgnoreCase("SQR"))
+			{
+				if(registerA > 0)
+				{
+					registerB = Math.sqrt(registerA);
+				}
+				else if(registerB > 0)
+				{
+					registerB = Math.sqrt(registerB);
+				}
+				else
+				{
+					registerB = 0;
+				}
+				lcd3.setText("" + registerB);
+			}
+			else if(action.equalsIgnoreCase("BIN"))
+			{
+				double d = 1;
+				double n;
+				String t = "";
+				if(registerA > 0)
+				{
+					n = registerA;
+				}
+				else if(registerB > 0)
+				{
+					n = registerB;
+				}
+				else
+				{
+					n = 0;
+				}
+				//determine highest necessary divisor
+				while(d < n)
+				{
+					d = d * 2;
+				}
+				//loop to create the string output
+				while(d > 1)
+				{
+					if(d > n)
+					{
+						t = t + "0";
+					}
+					else
+					{
+						t = t + "1";
+						n = n - d;
+					}
+					d = d / 2;
+				}
+				lcd3.setText(t);
+				lcd2.setText("");
+				lcd.setText("");
+			}
+			else if( lcd.getText().length() ==0)
+			{
+	               lcd2.setText(action);
+			}
+	        else if(action.equals(""))
+	        {
+	        	registerB = registerA;
+	        	lcd.setText("");
+	        	lcd2.setText(action);
+	        	lcd3.setText(""+registerB);
+	           }
 			else{
 				if(registerOP.equals("+")){
 					registerB = registerB + registerA;
@@ -182,28 +268,15 @@ public class Calculator {
 					registerB = registerB / registerA;
 					}
 				}
-				else if(registerOP.equalsIgnoreCase("SQR"))
-				{
-					registerB = Math.sqrt(registerB);
-				}
+				
 				registerA = 0;
 				registerOP = action;
-			}
-			
-			if(e.getSource() == blt[4])
-			{
-				lcd.setText("");
-				lcd2.setText("");
-				lcd3.setText("");
-			}
-			else if(e.getSource() == blt[5])
-			{
-				lcd.setText("");
-			}
-			else
-			{
-			lcd.setText("");
-			lcd2.setText(registerOP);
+				if(registerOP.equals("="))
+			      {
+			        registerOP = "";
+			      }
+					lcd.setText("");
+					lcd2.setText(registerOP);
 				if(eFlag == 0)
 				{
 					lcd3.setText(""+registerB);
