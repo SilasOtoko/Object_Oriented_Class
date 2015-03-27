@@ -130,6 +130,8 @@ public class Calculator {
 	private class Opress implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String action = e.getActionCommand();
+			int eFlag = 0;
+			String eMess = "Error";
 			
 			//get values of the lcds
 			String temp = lcd.getText();
@@ -168,7 +170,16 @@ public class Calculator {
 				}
 				else if(registerOP.equalsIgnoreCase("/"))
 				{
+					if(registerA == 0)
+					{
+						registerB = 0;
+						eMess = "Divide by Zero Error";
+						eFlag = 1;
+					}
+					else
+					{
 					registerB = registerB / registerA;
+					}
 				}
 				else if(registerOP.equalsIgnoreCase("SQR"))
 				{
@@ -192,7 +203,14 @@ public class Calculator {
 			{
 			lcd.setText("");
 			lcd2.setText(registerOP);
-			lcd3.setText(""+registerB);
+				if(eFlag == 0)
+				{
+					lcd3.setText(""+registerB);
+				}
+				else
+				{
+					lcd3.setText(eMess);
+				}
 			}
 		}
 	}
