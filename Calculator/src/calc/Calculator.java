@@ -23,12 +23,12 @@ public class Calculator {
 	JPanel opPanel;
 		JButton[]blt = new JButton[8];
 		Opress opPressed = new Opress();
-		
+			
 	
 	//constructor
 	public Calculator(){
 		//set up the top panel
-		topPanel = new JPanel();
+		topPanel = new JPanel();		         
 		//set the panels layout manager
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
 		
@@ -122,7 +122,7 @@ public class Calculator {
 					temp = temp + key;
 			}
 			else
-				temp = temp + key;
+				temp = temp + key;	
 				lcd.setText(temp);
 		}
 	}
@@ -163,15 +163,37 @@ public class Calculator {
 				else if(registerOP.equalsIgnoreCase("-")){
 					registerB = registerB - registerA;
 				}
-				
+				else if(registerOP.equalsIgnoreCase("*")){
+					registerB = registerB * registerA;
+				}
+				else if(registerOP.equalsIgnoreCase("/"))
+				{
+					registerB = registerB / registerA;
+				}
+				else if(registerOP.equalsIgnoreCase("SQR"))
+				{
+					registerB = Math.sqrt(registerB);
+				}
 				registerA = 0;
 				registerOP = action;
-				
 			}
 			
+			if(e.getSource() == blt[4])
+			{
+				lcd.setText("");
+				lcd2.setText("");
+				lcd3.setText("");
+			}
+			else if(e.getSource() == blt[5])
+			{
+				lcd.setText("");
+			}
+			else
+			{
 			lcd.setText("");
 			lcd2.setText(registerOP);
 			lcd3.setText(""+registerB);
+			}
 		}
 	}
 }
