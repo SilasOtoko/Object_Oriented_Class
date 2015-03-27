@@ -114,7 +114,8 @@ public class Calculator {
 	}
 	
 	private class Kpress implements ActionListener{
-		public void actionPerformed(ActionEvent e){
+		public void actionPerformed(ActionEvent e)
+		{
 			String key = e.getActionCommand();
 			String temp = lcd.getText();
 			if(key.equals(".")){
